@@ -2,11 +2,11 @@
 ################## cmix ################## 
 
 library(reticulate)
-use_python("/usr/bin/python3", required=TRUE)
+use_python("~/.conda/envs/cmix_env/bin/python", required=TRUE)
 
 py_string="
 import sys
-sys.path.append('/home/miguelramos/c-mix/')
+sys.path.append('~/c-mix/C-mix/')
 import numpy as np
 import pylab as pl
 import pandas as pd

@@ -27,21 +27,21 @@ library(glmnet)
 library(survival)
 library(smcure)
 
-setwd("~/Weibull_cure_tidy_up_code/")
+#setwd("~/Weibull_cure_tidy_up_code/")
 source("gmifs.R")
 source("EM.R")
-source("cmix.R")
+#source("cmix.R")
 source("Weibull.R")
 source("glmnet_cox.R")
 # source("Cox_EM.R")
 source("evaluation.R")
 
-source("~/result220201_Gompertz/Cox_EM_0304.R")
+source("Cox_EM_0501.R") #cambio 1
 
-source("~/result220201_Gompertz/data_generation.R")
+source("data_generation.R")
 
 if(method=="cmix"){
-  setwd("~/c-mix/C-mix/")
+  source("cmix.R") #cambio 2
 }
 
 set.seed(seed)
@@ -195,7 +195,7 @@ end.time = Sys.time()
 end.time - start.time
 
 ko_flag = ifelse(knockoff, "_ko", "")
-setwd(paste0("~/result210901_data_generation/",method,ko_flag))
+setwd(paste0("result210901_data_generation/",method,ko_flag))
 sign_flag = ifelse(same_signs, "_sign","")
 model_flag = switch(model_ind, "", "_GG", "_Gompertz", "_np", "_ggbase")
 itct_flag = paste0("_itct", itct_mean*10)
